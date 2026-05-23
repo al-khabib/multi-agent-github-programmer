@@ -1,2 +1,3 @@
 bachelor_thesis_roadmap.md
 *.venv/
+*__pycache__/
