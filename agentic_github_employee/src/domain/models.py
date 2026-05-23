@@ -1,10 +1,10 @@
-from enum import Enum
+from enum import StrEnum
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, Field
 
 
-class AgentRole(str, Enum):
+class AgentRole(StrEnum):
     PRODUCT_MANAGER = "PRODUCT_MANAGER"
     DEVELOPER = "DEVELOPER"
     REVIEWER = "REVIEWER"
@@ -17,7 +17,9 @@ class FileChange(BaseModel):
         description="Repository-relative path of the file being changed."
     )
     code_diff: str = Field(
-        description="Unified diff or patch content representing the proposed code change."
+        description=(
+            "Unified diff or patch content representing the proposed code change."
+        )
     )
     justification: str = Field(
         description="Reasoning that explains why this file change is necessary."
@@ -38,7 +40,9 @@ class GitHubIssue(BaseModel):
 class ExecutionTrace(BaseModel):
     model_config = ConfigDict(strict=True)
 
-    step_name: str = Field(description="Name of the orchestration step or agent action.")
+    step_name: str = Field(
+        description="Name of the orchestration step or agent action."
+    )
     prompt_tokens: int = Field(
         description="Number of prompt tokens consumed by this execution step."
     )
@@ -47,6 +51,9 @@ class ExecutionTrace(BaseModel):
     )
     latency_ms: float = Field(
         description="Observed latency of this execution step in milliseconds."
+    )
+    cost_usd: float = Field(
+        description="Estimated model cost for this execution step in US dollars."
     )
 
 
@@ -67,6 +74,9 @@ class AgenticState(BaseModel):
     )
     review_feedback: str | None = Field(
         description="Latest review feedback produced by the reviewer agent."
+    )
+    run_status: str = Field(
+        description="Overall orchestration status for the multi-agent execution."
     )
     revision_count: int = Field(
         description="Number of implementation or review revision cycles completed."
