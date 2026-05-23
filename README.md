@@ -1,10 +1,12 @@
-# Multi Agent Github Programmer
-Agentic workflow to automate github issue >> feature creating >> implementation >> review >> PR commit workflow
+# The Agentic GitHub Employee
 
+The Agentic GitHub Employee is a research-oriented backend for a cyclic
+multi-agent software engineering workflow. It models how agent personas can
+plan, propose code changes, review execution results, and self-correct before
+finalizing work.
 
-frameforms and tools to learn about:
-Technology,Role in Your Project,Why German Employers Care
-LangGraph (Sub-graphs),Core State-Machine Orchestrator,"Demanded for deterministic workflows. Shows you can build controlled AI, not just chat scripts."
-CrewAI / AutoGen v0.4+,Comparative Engines   ,"Shows architectural flexibility and familiarity with asynchronous, event-driven agent boundaries."
-Arize Phoenix / LangSmith,  LLM Tracing & Observability,"Critical. In Germany, you must prove where data goes, track token costs, and debug hallucinations visually."
-LiteLLM,LLM Proxy Provider,"Allows swapping between OpenAI, Anthropic, or local European models (like Mistral via Ollama) with a single line of code—essential for GDPR compliance."
+The active application lives in
+[agentic_github_employee](./agentic_github_employee/README.md).
+
+Use the project README for installation, local development, API usage, and
+verification commands.
